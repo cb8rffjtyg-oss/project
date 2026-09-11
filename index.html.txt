@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <h3>عناصر Lab 2:</h3>
+    <ul>
+        {% for item in items %}
+            <li>{{ item|upper }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h3>قائمة المهام (Lab 3 - Database):</h3>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - {% if task.completed %}مكتملة{% else %}قيد التنفيذ{% endif %}</li>
+        {% empty %}
+            <li>لا توجد مهام حالياً في قاعدة البيانات.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
